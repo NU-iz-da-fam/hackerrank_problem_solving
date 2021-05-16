@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n = 0;
+    int max = 0;
+    std::cin >> n;
+    std::vector <int> inp;
+    for (int i = 0; i < n; i ++){
+        int a = 0;
+        std::cin >> a;
+        inp.push_back(a);
+        if (max <= a){
+            max = a;
+        }
+    }
+    
+    while (inp.at(0) != max){
+        std::cout << n << std::endl;
+        sort(inp.begin(), inp.end());
+        int min = inp.at(0);
+        int i = 0;
+        while (min == inp.at(i)){
+            i++;
+        }
+        inp.erase(inp.begin(), inp.begin()+ i);
+        n = inp.size();
+    }
+    std::cout << inp.size() << std::endl;
+}
